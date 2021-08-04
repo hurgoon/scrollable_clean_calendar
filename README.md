@@ -1,7 +1,7 @@
 # Scrollable clean calendar (Week start with Sunday)
-## This version is only for calendar week start with 'Sunday'.
-## If you need the other version, go to the original repo. => https://github.com/FabioFiuza/scrollable_clean_calendar
-## 2021.08.04 Bernard Hur
+This version is only for calendar week start with 'Sunday'.
+If you need the other version, go to the original repo. => https://github.com/FabioFiuza/scrollable_clean_calendar
+Edited by 2021.08.04 Bernard Hur
 
 
 A clean calendar widget with vertical scroll, locale, and range selection date.
