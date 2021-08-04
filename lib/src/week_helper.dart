@@ -3,7 +3,7 @@ import 'package:scrollable_clean_calendar/utils/date_models.dart';
 class WeekHelper {
   static List<Month> extractWeeks(DateTime minDate, DateTime maxDate,
       [int startWeekDay = DateTime.monday]) {
-    DateTime weekMinDate = _findDayOfWeekInMonth(minDate, startWeekDay);
+    DateTime weekMinDate = _findDayOfWeekInMonth(minDate, startWeekDay = DateTime.sunday);
 
     final oneWeek = (startWeekDay + 5) > 6
         ? ((startWeekDay + 5) - 6).abs()
@@ -62,8 +62,7 @@ class WeekHelper {
     if (firstDayOfWeek.day + 6 > daysInMonth) {
       return DateTime(firstDayOfWeek.year, firstDayOfWeek.month, daysInMonth);
     } else {
-      return firstDayOfWeek
-          .add(Duration(days: DateTime.sunday - firstDayOfWeek.weekday));
+      return firstDayOfWeek.add(Duration(days: DateTime.saturday - (firstDayOfWeek.weekday == DateTime.sunday ? 0 : firstDayOfWeek.weekday)));
     }
   }
 

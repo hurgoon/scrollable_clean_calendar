@@ -1,3 +1,7 @@
+/// This version is only for calendar week start with 'Sunday'.
+/// If you need the other version, go to the original repo. => https://github.com/FabioFiuza/scrollable_clean_calendar
+/// 2021.08.04 Bernard Hur
+
 library scrollable_clean_calendar;
 
 import 'package:flutter/material.dart';
@@ -157,17 +161,16 @@ class _ScrollableCleanCalendarState extends State<ScrollableCleanCalendar> {
         (int position) {
           DateTime day = DateTime(
               week.firstDay.year,
-              week.firstDay.month,
-              firstDay.day +
-                  (position - (firstDay.weekday - widget.startWeekDay)));
+              week.firstDay.month, //
+              firstDay.day + (position - ((firstDay.weekday != 7 ? (firstDay.weekday + 7) : 7) - widget.startWeekDay)));
 
           final dayIsBeforeMinDate =
               day.isBefore(widget.minDate) && !day.isSameDay(widget.minDate);
           final dayIsAfterMaxDate =
               day.isAfter(widget.maxDate) && !day.isSameDay(widget.maxDate);
 
-          if ((position + widget.startWeekDay) < week.firstDay.weekday ||
-              (position + widget.startWeekDay) > week.lastDay.weekday ||
+          if ((position + widget.startWeekDay) < (week.firstDay.weekday != 7 ? (week.firstDay.weekday + 7) : 7) ||
+              (position) > (week.lastDay.weekday == 7 ? 0 : week.lastDay.weekday) || //
               day.isBefore(_minDate!) ||
               day.isAfter(_maxDate!)) {
             return SizedBox.shrink();
