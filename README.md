@@ -4,6 +4,8 @@ If you need the other version, go to the original repo. => https://github.com/Fa
 Edited by 2021.08.04 Bernard Hur
 
 
+
+
 A clean calendar widget with vertical scroll, locale, and range selection date.
 
 ## Instalation
